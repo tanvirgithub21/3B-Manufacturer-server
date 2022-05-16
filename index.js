@@ -43,6 +43,20 @@ async function run() {
         res.send(result)
       })
 
+      //update data
+      //url : http://localhost:5000/item/update/enter your id
+      app.put("/item/update/:_id", async(req, res)=>{
+        const data = req.body;
+        const itemId = req.params._id;
+        const query = {_id: ObjectId(itemId)};
+        const updateDocument = {
+          $set: { ...data }
+        };
+        const result = await gadgetCollection.updateOne(query, updateDocument);
+        res.send(result)
+      } )
+      
+
       
 
     } finally {
