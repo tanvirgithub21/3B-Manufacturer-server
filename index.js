@@ -57,7 +57,16 @@ async function run() {
       } )
       
 
+      //delete data
+      //url : http://localhost:5000/item/delete?id=idnumber
+      app.delete("/item/delete", async(req, res) =>{
+        const { id } = req.query;
+        const filter = {_id: ObjectId(id)}
+        const deleteResult = await gadgetCollection.deleteOne(filter);
+        res.send(deleteResult)
+      })
       
+
 
     } finally {
       // Ensures that the client will close when you finish/error
