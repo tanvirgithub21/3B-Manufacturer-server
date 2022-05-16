@@ -58,9 +58,9 @@ async function run() {
       
 
       //delete data
-      //url : http://localhost:5000/item/delete?id=idnumber
-      app.delete("/item/delete", async(req, res) =>{
-        const { id } = req.query;
+      //url : http://localhost:5000/item/delete/id number
+      app.delete("/item/delete/:_id", async(req, res) =>{
+        const id  = req.params._id;
         const filter = {_id: ObjectId(id)}
         const deleteResult = await gadgetCollection.deleteOne(filter);
         res.send(deleteResult)
