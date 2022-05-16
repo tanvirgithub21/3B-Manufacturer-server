@@ -68,6 +68,15 @@ async function run() {
       
 
 
+      //Add new item
+      //url : http://localhost:5000/addItem
+      app.post( "/addItem" , async(req, res) =>{
+        const data = req.body;
+        const result = await gadgetCollection.insertOne(data);
+        res.send(result)
+      })
+      
+
     } finally {
       // Ensures that the client will close when you finish/error
     //   await client.close();
