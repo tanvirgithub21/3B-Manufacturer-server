@@ -1,8 +1,6 @@
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
-const { get } = require("express/lib/response");
-const res = require("express/lib/response");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const app = express();
@@ -118,13 +116,12 @@ async function run() {
 run().catch(console.dir);
 
 app.get( "/", (req , res)=>{
-  res.send("Barishal Gadget store server is running")
+  res.send(" Barishal Gadget store server is running")
 })
+
 
 app.listen(port, () => {
   console.log("listen to port, ", port);
 });
 
 
-
-//pass MldV5qq33YBWkO5J
