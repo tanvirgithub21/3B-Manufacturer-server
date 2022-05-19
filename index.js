@@ -42,6 +42,8 @@ async function run() {
       });
     }
 
+
+
     //get all items
     //url : http://localhost:5000/allItems
     app.get("/allItems", async (req, res) => {
@@ -106,6 +108,8 @@ async function run() {
       });
       res.send({ token });
     });
+
+
   } finally {
     // Ensures that the client will close when you finish/error
     //   await client.close();
@@ -113,8 +117,14 @@ async function run() {
 }
 run().catch(console.dir);
 
+app.get( "/", (req , res)=>{
+  res.send("ok")
+})
+
 app.listen(port, () => {
   console.log("listen to port, ", port);
 });
+
+
 
 //pass MldV5qq33YBWkO5J
